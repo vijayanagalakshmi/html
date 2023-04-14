@@ -1,11 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>learning html5</title>
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            border:2px solid green;
+            border-collapse: collapse;
+            width:100px;
+            font-size: large;
+        }
+
+        .header {
+            color: red;
+            background-color: yellow
+        }
+
+        .members {
+            color: blue;
+        }
+
+        #topic {
+            color: green;
+        }
+    </style>
 </head>
+
 <body>
-<h1>hello welcome world</h1>
-<h2>this is my first program</h2>
+    <h1 id="topic">TABLE DEMO</h1>
+    <table class="table">
+        <thead>
+            <tr class="header">
+                <th>members</th>
+                <th>person</th>
+                <th>age</th>
+                <th>gender</th>
+                <th>picture</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="members">me</td>
+                <td>vijaya</td>
+                <td>33</td>
+                <td>female</td>
+                <td>
+                    <img src="pic1.jpeg" alt="no picture" width="100px" height="100px">
+                </td>
+            </tr>
+            <tr>
+                <td class="members">husband</td>
+                <td>rajesh</td>
+                <td>35</td>
+                <td>male</td>
+                <td>
+                    <img src="pic2.jpeg" alt="nothing" width="100px" height="100px">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="members">daughter</td>
+                <td>dolly</td>
+                <td>9</td>
+                <td rowspan="2">female</td>
+                <td>
+                    <img src="pic3.jpg" alt="no picture" width="100px" height="100px">
+                </td>
+            </tr>
+            <tr>
+                <td> lucky</td>
+                <td>5</td>
+                <td>
+                    <img src="pic4.jpeg" alt="lucky picture">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">merge 1 and 2 columns</td>
+                <td colspan="2">merge 3 and 4 columns</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
+
 </html>
