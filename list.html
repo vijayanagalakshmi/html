@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <script>
+        function getPrice(event, value, count, type) {
+            alert("what do you want:  " + event.innerHTML + "\n its cost" + value + "$" + "\n no of plants=" + count + "\n total cost=" + (value * count) + "\n plant type is  " + type);
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h1>Ordered List</h1>
+    <ol>
+        <li onclick="getPrice(this,4,5,'outdoor plant')">Rose Plant</li>
+        <li onclick="getPrice(this,3,8,'outdoor plant')">lilly</li>
+        <li onclick="getPrice(this,6,6,'outdoor plant')">hosta</li>
+        <li onclick="getPrice(this,9,6,'outdoor plant')">lavender</li>
+        <li onclick="getPrice(this,1,5,'outdoor plant')">canna</li>
+        <li onclick="getPrice(this,7,6,'outdoor plant')">hibiscus</li>
+        <li onclick="getPrice(this,2,9,'outdoor plant')">marigold</li>
+        <li onclick="getPrice(this,3,10,'outdoor plant')">agave</li>
+        <li onclick="getPrice(this,5,9,'outdoor plant')">cactus</li>
+        <li onclick="getPrice(this,4,16,'outdoor plant')">coral</li>
+
+    </ol>
+    <hr>
+    <h1>UnOrdered List</h1>
+    <ul>
+        <li onclick="getPrice(this,12,16,'indoor plant')">devil ivy</li>
+        <li onclick="getPrice(this,6,6,'indoor plant')">peacelily</li>
+        <li onclick="getPrice(this,9,3,'indoor plant')">leaf fig</li>
+        <li onclick="getPrice(this,5,5,'indoor plant')">snake plant</li>
+        <li onclick="getPrice(this,8,6,'indoor plant')">rubberr plant</li>
+        <li onclick="getPrice(this,8,8,'indoor plant')">spider plant</li>
+        <li onclick="getPrice(this,11,16,'indoor plant')">zz plant</li>
+        <li onclick="getPrice(this,8,10,'indoor plant')">pothos</li>
+        <li onclick="getPrice(this,3,7,'indoor plant')">aloe vera</li>
+        <li onclick="getPrice(this,4,9,'indoor plant')">jade plant</li>
+    </ul>
+</body>
+
+</html>
