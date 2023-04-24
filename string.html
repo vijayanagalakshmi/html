@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script>
+        let fname;
+        function firstName() {
+            fname = document.getElementById("firstname").value;
+            document.getElementById("displayName").hidden = false;
+            document.getElementById("fullname").innerHTML = fname;
+        }
+
+        function lastName() {
+            const lname = document.getElementById("lastname").value;
+            document.getElementById("displayName").hidden = false;
+            document.getElementById("fullname").innerHTML = fname + ' ' + lname;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        First Name: <input type="text" id="firstname"  onkeydown="firstName()" value=" " />
+        <br><br>
+        Last Name: <input type="text" id="lastname" value="" onblur="lastName()" />
+        <br>
+        <br>
+        <div id="displayName" hidden="true">
+            Hi, <span id="fullname" ></span>
+        </div>
+    </form>
+</body>
+
+</html>

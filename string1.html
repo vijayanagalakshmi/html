@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <script>
+
+        function fullname(event) {
+            let fname, lname;
+            if (id = 'firstname') {
+                //append as first nam
+                fname = document.getElementById('firstname').value;
+                document.getElementById('displayName').hidden = false;
+                document.getElementById('fullname').innerHTML = fname;
+
+            }
+
+            else if (id = 'lastname') {
+                //append as last name;
+                document.getElementById('fullname').value = fname;
+                lname = document.getElementById('lastname').value;
+                document.getElementById('displayName').hidden = false;
+                document.getElementById('fullname').innerHTML = fname + lname;
+            }
+            else {
+                document.getElementById('fullname').innerHTML = nothing
+            }
+
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <form>
+
+        First Name: <input type="text" id="firstname" onkeydown="fullname(this)" value=" ">
+        <br><br>
+        Last Name: <input type="text" id="lastname" onblur="fullname(this)" value=" ">
+        <br><br>
+        <div id='displayName' hidden="true">
+            Hi, <span id="fullname"> </span>
+        </div>
+    </form>
+</body>
+
+</html>

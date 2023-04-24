@@ -1,0 +1,77 @@
+<html>
+
+<head>
+     <script>
+          let num = 0;
+
+          let ar = []; // new
+
+          let isPlusChecked = false;
+
+          function addNumber(event) {
+               let value = event.value;
+
+               console.log('event', value);
+
+               if (!isPlusChecked) {
+
+                    document.getElementById("first").innerHTML += value;
+
+                    ar[0] = document.getElementById("first").innerHTML;
+
+               }
+               else {
+                    document.getElementById("second").innerHTML += value;
+
+                    ar[1] = document.getElementById("second").innerHTML;
+               }
+          }
+          function add(event) {
+               console.log("Addition operation");
+               isPlusChecked = true;
+
+          }
+          function calc() {
+               var result = parseInt(ar[0]) + parseInt(ar[1])
+               alert(result);
+
+          }
+     </script>
+
+</head>
+
+<body>
+
+     <form>
+
+          <h1>Calculator</h1>
+
+          <input type="button" onclick="addNumber(this)" value="1">
+
+          <input type="button" onclick="addNumber(this)" value="2" />
+
+          <input type="button" onclick="addNumber(this)" value="3" /><br><br>
+
+          <input type="button" onclick="add()" value="+">
+
+          <input type="button" onclick="calc()" value="=">
+
+     </form>
+
+     <div>
+
+          <span name='first' id="first"></span>
+
+          <span>+</span>
+
+          <span name='first' id="second"></span>
+
+          <span>=</span>
+
+          <!--<span id="result" onclick="add()"></span>-->
+
+     </div>
+
+</body>
+
+</html>

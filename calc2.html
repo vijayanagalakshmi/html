@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <style>
+            .button {
+                border: 2px;
+                background-color: lightblue;
+                color: blueviolet;
+                padding: 30px 30px;
+                text-align: center;
+                font-size: 30px;
+                margin: 3px 3px;
+                border-radius: 1;
+            }
+        </style>
+        <script>
+            function givenNumber(event)
+            {
+                console.log('givenNumber',event);
+                const num= document.getElementById('numvalue').value;
+            }
+            let num = 0;
+            let ar = []; // new
+            
+            let isAddChecked = false;
+            let isSubChecked = false;
+            let isMulChecked = false;
+            let isDivChecked = false;
+            let isMDivChecked = false;
+            function addNumber(event){
+                let value = event.value;
+                console.log('event', value);
+                if( !isAddChecked & !isSubChecked & !isMulChecked & !isDivChecked & !isMDivChecked ){
+                    document.getElementById("first").innerHTML += value; // a = a+value
+                    ar[0] = document.getElementById("first").innerHTML;
+                    document.getElementById("second").hidden=true;
+                    document.getElementById("first").hidden=false;
+                    document.getElementById("result").hidden=true;
+                }else{
+                    document.getElementById("second").innerHTML += value;
+                    ar[1] = document.getElementById("second").innerHTML;
+                    document.getElementById("second").hidden=false;
+                    document.getElementById("first").hidden=true;
+                    document.getElementById("result").hidden=true;
+            }
+            }
+            function add(){
+                console.log("Addition operation");
+                isAddChecked = true;
+                isSubChecked = false;
+                isMulChecked = false;
+                isDivChecked = false;
+                isMDivChecked = false;
+            }
+            function subt(){
+                console.log("Subtraction operation");
+                isSubChecked=true;
+                isAddChecked = false;
+                isMulChecked = false;
+                isDivChecked = false;
+                isMDivChecked = false;
+                //document.getElementById("result").innerHTML= parseInt(ar[0],10) - parseInt(ar[1],10);
+            }
+            function multiply(){
+                console.log("Multiplication operation");
+                isMulChecked=true;
+               
+                // document.getElementById("result").innerHTML= parseInt(ar[0],10) * parseInt(ar[1],10);
+            }
+            function div(){
+                console.log(" Division operation");
+                isDivChecked=true;
+                // document.getElementById("result").innerHTML= parseInt(ar[0],10) / parseInt(ar[1],10);
+            }
+            function modiv(){
+                console.log("Modulo Division operation");
+                isMDivChecked=true;
+                let temp=parseInt(ar[0],10) 
+                // document.getElementById("result").innerHTML= parseInt(ar[0],10) % parseInt(ar[1],10);
+            }
+           
+            function calc(){
+                if(isAddChecked){
+                   let num1 = Number(ar[0]);
+                   let num2= Number(ar[1]);
+                   document.getElementById("result").innerHTML= num1+ num2;
+                } else if(isSubChecked){
+                   let num1=+ar[0];
+                   let num2=+ar[1];
+                   document.getElementById("result").innerHTML= num1-num2;
+                } else if(isMulChecked){
+                   let num1=+ar[0];
+                   let num2=+ar[1];
+                   document.getElementById("result").innerHTML= num1*num2;
+                } else if(isDivChecked){
+                   let num1=+ar[0];
+                   let num2=+ar[1]; 
+                   document.getElementById("result").innerHTML= num1/num2;
+                } else if(isMDivChecked){
+                   let num1=+ar[0];
+                   let num2=+ar[1];
+                   document.getElementById("result").innerHTML= num1 % num2;
+                } 
+                isSubChecked = false;
+                isAddChecked = false;
+                isMulChecked = false;
+                isDivChecked = false;
+                isMDivChecked = false;
+                document.getElementById("second").hidden=true;
+                document.getElementById("first").hidden=true;
+                document.getElementById("result").hidden=false;
+            }
+            function clearValues(){
+                console.log('clear called.')
+                document.getElementById("result").innerHTML = '';
+                document.getElementById("first").innerHTML = '';
+                document.getElementById("second").innerHTML = '';
+                ar = [];
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <h1>Calculator</h1>
+            <input type="button" class="button" onclick="addNumber(this)" value="1"/>
+            <input type="button" class="button" onclick="addNumber(this)" value="2"/>
+            <input type="button" class="button" onclick="addNumber(this)" value="3"/>
+            <input type="button" class="button" onclick="add()" value="+">
+            <br>
+            <input type="button"  class="button" onclick="addNumber(this)" value="4"/>
+            <input type="button" class="button" onclick="addNumber(this)" value="5"/>
+            <input type="button" class="button" onclick="addNumber(this)" value="6"/>
+            <input type="button" class="button" onclick="subt()" value="-">
+            <br>
+            <input type="button" class="button" onclick="addNumber(this)" value="7"/>
+            <input type="button" class="button" onclick="addNumber(this)" value="8"/>
+            <input type="button" class="button" onclick="addNumber(this)" value="9"/>
+            <input type="button" class="button" onclick="multiply()" value="*">
+            <br>
+            <input type="button" class="button" onclick="addNumber(this)" value="0"/>    
+            
+            <input type="button" class="button" onclick="div()" value="/">
+            <input type="button" class="button" onclick="modiv()" value="%"><br>
+
+            <input type="button" class="button" onclick="calc()" value="Result">
+            <input type="button" class="button" onclick="clearValues()" value="Clear">
+        </form>
+       <!-- <div style="border:3px solid green; width: 200px;  height: 200px padding= 5px">
+            <span name='first' id="first"></span>
+        
+            <span name='second' id="second" hidden></span>
+            
+            <span id="result">&nbsp</span>
+        </div> -->
+        <div>
+            <input type="number" id='numvalue' value=" " onkeypress="givenNumber(this)"/>
+
+        </div>
+    </body>
+</html>

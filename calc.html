@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script>
+        let num;
+        function givenNumber(event) {
+            //console.log('givenNumber', event);
+             num = document.getElementById('numvalue').value;
+        }
+
+
+        function calculate() {
+            console.log("num value" , num);
+            console.log(eval(num));
+            var q = eval(num);
+            document.getElementById("result").innerHTML = q;
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <input type="text" id='numvalue' value=" " onkeypress="givenNumber(this)" />
+        
+        <input type="button"  id='result' value="calclulate" onclick="calculate()" />
+    </div>
+</body>
+
+</html>
