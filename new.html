@@ -1,0 +1,43 @@
+
+<html>
+<head>
+<script>
+//When do we use local variables. and when do we use global variable.
+letfname = ''; //Globale variable. available across the script file
+letlname = '';
+functionfirstName(){​​​​​​​​
+fname = document.getElementById('firstname').value;
+document.getElementById('displayName').hidden=false;
+document.getElementById('fullname').innerHTML = fname; 
+ }​​​​​​​​
+functionlastName(){​​​​​​​​
+//lname is a local variable. available within the function itself. 
+constlname = document.getElementById('lastname').value;
+document.getElementById('displayName').hidden=false;
+document.getElementById('fullname').innerHTML = fname + ' ' +lname;
+ }​​​​​​​​
+functionfullname(event){​​​​​​​​
+console.log(event.id)
+if(event.id === 'firstname'){​​​​​​​​
+fname = document.getElementById('firstname').value;
+ }​​​​​​​​else{​​​​​​​​
+lname = document.getElementById('lastname').value;
+ }​​​​​​​​
+document.getElementById('fullname').innerHTML = fname + " " + lname;
+document.getElementById('displayName').hidden = false;
+ }​​​​​​​​
+</script>
+</head>
+<body>
+<form>
+<!-- First Name: <input type="text" id="firstname" onblur="firstName()" value=""> <br><br>
+ Last Name: <input type="text" id="lastname" onblur="lastName()" value=""> -->
+<labeltitle="firstname">First Name:</label><inputtype="text"title="firstname"id="firstname"onblur="fullname(this)"value=""><br><br>
+ Last Name: <inputtype="text"title="lastname"id="lastname"onblur="fullname(this)"value="">
+<divid='displayName'hidden="true">
+ Hi, <spanid="fullname"></span>
+</div>
+</form>
+</body>
+</html>
+

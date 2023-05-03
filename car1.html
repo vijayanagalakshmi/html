@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <style>
+        .button {
+            border: 1px;
+            background-color: lightblue;
+            color: blueviolet;
+            padding: 20px 20px;
+            text-align: center;
+            font-size: 30px;
+            margin: 2px 2px;
+            border-radius: 1;
+        }
+
+        .text {
+            background-color: azure;
+        }
+    </style>
+
+    <script>
+        const car = {
+            name: "",
+            model: "",
+            color: "",
+            year: ""
+
+        }
+        function create() {
+
+            car.name = document.getElementById("name").value;
+            car.model = document.getElementById("model").value;
+            car.color = document.getElementById("carcolor").value;
+            car.year = document.getElementById("year").value;
+
+            document.getElementById("car1").innerHTML =
+                "The car details are  " + car.name + "   " + car.model + "    " + car.color + "    " + car.year;
+             
+        }
+        function clearAll()
+        {
+            document.getElementById("name").value=" ";
+            document.getElementById("model").value=" ";
+            document.getElementById("carcolor").value=" ";
+            document.getElementById("year").value=" ";
+        }
+
+        
+        function start() {
+            document.getElementById("demo").innerHTML = "the cae is started";
+        }
+        function drive() {
+            document.getElementById("demo").innerHTML = "i am driving";
+        }
+        function breaking() {
+            document.getElementById("demo").innerHTML = "press the break";
+        }
+        function stop() {
+            document.getElementById("demo").innerHTML = "stop the car";
+        }
+    </script>
+</head>
+
+<body>
+
+    Nmae:
+    <input type="text"  class="text" id="name" value=""  > <br><br>
+    model:
+    <input type="text" class="text" id="model" value=" " /><br><br>
+    color:
+    <input type="text" class="text" id="carcolor" value=" " /><br><br>
+    year:
+    <input type="number" class="text" id="year" value=" "><br><br>
+    <br><br>
+    <div id="car1"></div>
+    <br>
+    <div id="car2"></div>
+    <br><br>
+    <input type="button" class="button" id="create" onclick="create()" value=" create car"><br><br>
+    <input type="button" class="button" id="clear"  onclick="clearAll()" value="clear">
+    
+    <br>
+    <input type="button" value="start" onclick="start()">
+    <input type="button" value="drive" onclick="drive()">
+    <input type="button" value="break" onclick="breaking()">
+    <input type="button" value="stop" onclick="stop()"><br>
+    <br>
+    <p id="demo"> </p>
+
+</body>
+
+</html>

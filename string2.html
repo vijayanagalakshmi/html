@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <script>
+
+        let family = [];
+        let i = "0";
+        let person = {
+
+            firstname: " ",
+            lastname: " ",
+            age: "0"
+        }
+
+        function createPerson() {
+
+            const fname = document.getElementById('firstname').value;
+            const lname = document.getElementById('lastname').value;
+            //Person person = ;
+            family.push({ fname, lname });
+            console.log("Family: ", family);
+        }
+
+
+
+        function addElement() {
+            // create a new div element
+            const newtable = document.createElement("table");
+            // and give it some content
+            const newContent = document.createTextNode("Hi ");
+            // add the text node to the newly created div
+            newtable.appendChild(newContent);
+            // add the newly created element and its content into the DOM
+            const currenttable = document.getElementById("table1");
+            document.body.insertBefore(newtable, currenttable);
+        }
+
+
+    </script>
+</head>
+
+<body>
+  <!-- <div id="div1" onclick='addElement()'>The text above has been created dynamically. </div> -->
+    <h1> table</h1>
+      <table border="2" >
+          <tr >
+            <th>firstname </th>
+            <th>lastname</th>
+          </tr>
+          <tr id="table1" onclick="addElement()">
+             <td></td>
+          </tr>
+      </table>
+</body>
+
+
+
+
+
+
+<!--  First Name: <input type="text" title="firstname" id="firstname" value="" />
+        <br><br>
+        Last Name: <input type="text" title="lastname" id="lastname" value="" />
+        <input type="button" onclick="createPerson()" value="Save"> -->
+
+
+
+
+
+</html>

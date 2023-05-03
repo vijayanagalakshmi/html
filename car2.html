@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Car Object Example</title>
+    <script>
+        let car = {
+            name: "",
+            model: "",
+            year: "",
+            color: ""
+        };
+        // Function to insert values into the car object
+        function createCar() {
+            car.name = document.getElementById("name").value;
+            car.model = document.getElementById("model").value;
+            car.year = document.getElementById("year").value;
+            car.color = document.getElementById("color").value;
+
+            displayValues();
+        }
+        // Function to update values in the car object
+        function updateValues() {
+            car.name = document.getElementById("name-update").value;
+            car.model = document.getElementById("model-update").value;
+            car.year = document.getElementById("year-update").value;
+            car.color = document.getElementById("color-update").value;
+            displayValues();
+        }
+        // Function to display the car object values on the web page
+        function displayValues() {
+            document.getElementById("name-display").innerHTML = car.name;
+            document.getElementById("model-display").innerHTML = car.model;
+            document.getElementById("year-display").innerHTML = car.year;
+            document.getElementById("color-display").innerHTML = car.color;
+        }
+        function start(event) {
+            let name = document.getElementById("name").value;
+            let model = document.getElementById("model").value;
+            let year = document.getElementById("year").value;
+            let color = document.getElementById("color").value;
+
+            if (name && model && year && color) {
+                document.getElementById("demo").innerHTML = "the car is started";
+            } else {
+                document.getElementById("demo").innerHTML = "the car is not started";
+            }
+        }
+        function drive() {
+            let name = document.getElementById("name").value;
+            let model = document.getElementById("model").value;
+            let year = document.getElementById("year").value;
+            let color = document.getElementById("color").value;
+            if (name && model && year && color) {
+                document.getElementById("demo").innerHTML = "i am driving the car";
+            } else {
+                document.getElementById("demo").innerHTML = "the car is not created";
+            }
+        }
+        function breaking() {
+            let name = document.getElementById("name").value;
+            let model = document.getElementById("model").value;
+            let year = document.getElementById("year").value;
+            let color = document.getElementById("color").value;
+            if (name && model && year && color) {
+                document.getElementById("demo").innerHTML = "slow down the car";
+            } else {
+                document.getElementById("demo").innerHTML = "the car is not started";
+            }
+        }
+        function stop() {
+           let name = document.getElementById("name").value;
+            let model = document.getElementById("model").value;
+            let year = document.getElementById("year").value;
+            let color = document.getElementById("color").value;
+
+           if (name && model && year && color) {
+                document.getElementById("demo").innerHTML = "stop the car";
+            } else {
+                document.getElementById("demo").innerHTML = "the car  is not started";
+            }
+        }
+    </script>
+</head>
+
+<body style="background-color:powderblue">
+    <h1>Car Object </h1>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br><br>
+        <label for="model">Model:</label>
+        <input type="text" id="model"><br><br>
+        <label for="year">Year:</label>
+        <input type="number" id="year"><br><br>
+        <label for="color">Color:</label>
+        <input type="text" id="color"><br>
+       <!-- <button type="button"  onclick="createCar()">Car Details</button>-->
+        <input type="button" id="newcar" onclick="createCar()" value="Craete car " />
+        <h2>Car Object Values:</h2>
+        <ul>
+            <li>Name: <span id="name-display"></span></li>
+            <li>Model: <span id="model-display"></span></li>
+            <li>Year: <span id="year-display"></span></li>
+            <li>Color: <span id="color-display"></span></li>
+        </ul>
+    </form>
+    <br>
+   <form title="updated values">
+        <label for="name-update">Name:</label>
+        <input type="text" id="name-update"><br><br>
+        <label for="model-update">Model:</label>
+        <input type="text" id="model-update"><br><br>
+        <label for="year-update">Year:</label>
+        <input type="text" id="year-update"><br><br>
+        <label for="color-update">Color:</label>
+        <input type="text" id="color-update"><br>
+    </form> 
+
+    <button type="button" onclick="updateValues()">Update Values</button>
+    <h2> update car values</h2>
+    <ul>
+        <li>Name: <span id="name-display"></span></li>
+        <li>Model: <span id="model-display"></span></li>
+        <li>Year: <span id="year-display"></span></li>
+        <li>Color: <span id="color-display"></span></li>
+    </ul>
+    <input type="button" value="start" onclick="start()">
+    <input type="button" value="drive" onclick="drive()">
+    <input type="button" value="break" onclick="breaking()">
+    <input type="button" value="stop" onclick="stop()">
+    <p id="demo"> </p>
+</body>
+
+</html>

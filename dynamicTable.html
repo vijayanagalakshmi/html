@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Dynamic Table</title>
+        <script>
+            function addPerson()
+            {
+                var name = document.sample.name.value;
+                var phone = document.sample.phone.value;
+                var city = document.sample.city.value;
+                var trow = document.createElement('tr');   // row creation
+
+                var td1 = trow.appendChild(document.createElement('td'));
+                var td2 = trow.appendChild(document.createElement('td'));
+                var td3 = trow.appendChild(document.createElement('td'));
+
+                td1.innerHTML = name;
+                td2.innerHTML = phone;
+                td3.innerHTML = city;
+
+                document.getElementById('tbl').appendChild(trow);
+
+            }
+            
+        </script>
+    </head>
+    <body>
+         <h1> Person Data </h1>
+         <form name="sample">
+            <br>
+            Name : 
+                <input type="text" name ="name">
+            phone : 
+                 <input type="number" name="phone">
+            city :
+                 <input type="text" name="city">
+                 <input type="button" name="Add Data" value="Add Data" onclick="addPerson()">
+                 <br>
+                 <!-- table creation-->
+                 <table id="tbl" border="2"><br>
+                    <thead>
+                        <th style="color: blueviolet;">Name</th>
+                        <th bgcolor="blue">phone</th>
+                        <th bgcolor="blue">city</th>
+                    </thead>
+                    <tbody>  </tbody>
+
+                 </table>
+         </form>
+    </body>
+</html>    

@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <script>
+
+        function generateTable() {
+            // creates a <table> element and a <tbody> element
+            const tbl = document.createElement("table");
+            const tblBody = document.createElement("tbody");
+            
+
+            // creating all cells
+            for (let i = 0; i < 4; i++) {
+                // creates a table row
+                const row = document.createElement("tr");
+
+                for (let j = 0; j < 4; j++) {
+                    
+                 /*   console.log('td value',tbl.getElementsByTagName('th'));
+                     if(tbl.getElementsByTagName('th') == 'th')
+                     {
+                        const headerCell = document.createElement("th");
+                        const headerText = document.createTextNode(`headcell ${j}`);
+                        headerCell.appendChild(headerText);
+                        row.appendChild(headerCell);
+                     }
+                     else{ */
+
+                        const cell = document.createElement("td");
+                        const cellText = document.createTextNode(`cell ${i},${j}`);
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                        
+                    } 
+
+                    // add the row to the end of the table body
+                    tblBody.appendChild(row);
+                }
+                
+                tbl.appendChild(tblBody);
+                // appends <table> into <body>
+                document.body.appendChild(tbl);
+                
+                tbl.setAttribute("border", "4");
+                tbl.setAttribute("style", "background-color: aqua");
+                tbl.style.color = "red";
+            }
+        
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Generate a table" onclick="generateTable()" />
+    <br>
+
+
+</body>
+
+</html>
