@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form to Table Example</title>
+    <style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+
+    </style>
+</head>
+<body>
+<h1>Form to Table Example</h1>
+
+<form onsubmit="return addRow()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br><br>
+    <button type="submit">Add Row</button>
+</form>
+<br>
+
+<table id="myTable">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+		// Initialize an empty array to hold the table data
+		let tableData = [];
+
+		// Function to add a new row to the table
+		function addRow() {
+			// Get the form values
+			let name = document.getElementById("name").value;
+			let age = document.getElementById("age").value;
+
+			// Add the form values to the table data array
+			tableData.push({ name: name, age: age });
+
+			// Clear the form fields
+			document.getElementById("name").value = "";
+			document.getElementById("age").value = "";
+
+			// Redraw the table with the updated data
+			drawTable();
+
+			// Prevent the form from submitting and refreshing the page
+			return false;
+		}
+
+		// Function to draw the table with the current data
+		function drawTable() {
+			// Get the table body element
+			let tableBody = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+
+			// Clear the current table rows
+			tableBody.innerHTML = "";
+
+			// Loop through the table data and add a new row for each entry
+			for (let i = 0; i < tableData.length; i++) {
+				let rowData = tableData[i];
+				let row = tableBody.insertRow(-1);
+				let nameCell = row.insertCell(0);
+				let ageCell = row.insertCell(1);
+				let actionCell = row.insertCell(2);
+
+				nameCell.innerHTML = rowData.name;
+				ageCell.innerHTML = rowData.age;
+				actionCell.innerHTML = "<button onclick='editRow(" + i + ")'>Edit</button>";
+			}
+		}
+
+		// Function to edit a row in the table
+		function editRow(index) {
+			// Get the current row data
+			let rowData = tableData[index];
+
+			// Set the form values to the current row data
+			document.getElementById("name").value = rowData.name;
+			document.getElementById("age").value = rowData.age;
+
+			// Remove the current row data from the table data array
+			tableData.splice(index, 1);
+
+			// Redraw the table with the updated data
+			drawTable();
+		}
+
+
+</script>
+</body>
+</html>
