@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            background-color: paleturquoise;
+            border: none;
+            color: black;
+            padding: 15px 15px;
+            cursor: pointer;
+            border-radius: 12px;
+            width: 100px;
+            margin-top: 10px;
+            text-decoration: none;       
+        }
+    </style>
+
+
+    <script>
+       function multiTable() {
+            let number = Number(document.getElementById("number").value);;
+            var result = "";
+            if (number <= 20) {
+                for (let i = 1; i <= 10; i++) {
+                   result = result + "<p >" + number + "*" + i + "=" + number * i + "<p/>";
+                    
+                }
+
+                document.getElementById("result").innerHTML = result;
+            }
+            else {
+                document.getElementById("result").innerHTML = "Enter the number below 20";
+            }
+        }
+        
+
+    </script>
+</head>
+
+<body>
+    <h3>Enter the number between 1 to 20 : </h3>
+    <input id="number" name="value" />
+    <button onclick="multiTable()">Print</button>
+    <div id="result">
+</body>
+
+</html>

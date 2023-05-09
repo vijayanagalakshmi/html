@@ -1,137 +1,226 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <script>
-    let Car = {
-    name:"",
-    model:"",
-    year:"",
-    start: function(name) {
-        this.name = name;
-        document.getElementById("carstatus").innerHTML = "My "+this.name+" Started";
-    }
-    };
+        let Car = {
+            name: "",
+            model: "",
+            color: "",
+            year: "",
+            start: function (name) {
+                this.name = name;
+                document.getElementById("carstatus").innerHTML = "My " + this.name + " Started";
+            },
+            break: function (name) {
+                this.name = name;
+                document.getElementById("carstatus").innerHTML = this.name + " " + "aplly break";
+            },
+            drive: function (name) {
+                this.name = name;
+                document.getElementById("carstatus").innerHTML = "im driving" + this.name;
+            },
+            stop: function (name) {
+                this.name = name;
+                document.getElementById("carstatus").innerHTML = this.name + " stop";
+            },
+        };
 
-    function start(){
-        //const name = document.getElementById("cname").value;
-        if(Car.name === undefined || Car.name === ""){
-            document.getElementById("carstatus").innerHTML = "Car has NOT created."
-        }else{
-            Car.start(Car.name);
-        }
-        
-    }
-    let cars = [];
-    function create() {
-        const car = {};
-        const carname = document.getElementById("cname");
-        const carmodel = document.getElementById("cmodel");
-        const yearnode = document.getElementById("cyear");
-        name = carname.value; // = document.getElementById("cname").value
-        // model = carmodel.value; // = document.getElementById("cname").value
-        
-        console.log("car {} {}", name, (name === "") ); // diff bet == & ===
-        if(name === undefined || name === ""){
-            document.getElementById("carstatus").innerHTML = "Provide valid Car name."
-        }else{
-            
-            car.name = name;
-            car.model = carmodel.value;
-            car.year = yearnode.value;
-        
-            
-            carname.value = ''; //= document.getElementById("cname").value = ''
-            document.getElementById("carstatus").innerHTML = Car.name+" has created."
-        }
-        cars.push(car);
-        console.log(cars);
-        
-        addCar(car);
-    }
+        function start() {
+            const name = document.getElementById("cname").value;
+            console.log("car name is:", name);
+            if (Car.name === undefined || Car.name === "") {
+                document.getElementById("carstatus").innerHTML = "Car has NOT created."
+            } else {
+                Car.start(name);
+            }
 
-    function edit() {
-        document.getElementById("cname").value = Car.name;
-    }
-    function deleteCar() {
-        Car.name = '';
-        document.getElementById("carstatus").innerHTML = 'Car has removed'
-    }
+        }
+        function breakCar() {
+            //const name = document.getElementById("cname").value;
+            if (Car.name === undefined || Car.name === "") {
+                document.getElementById("carstatus").innerHTML = "Car has NOT created."
+            } else {
+                Car.break(Car.name);
+            }
+        }
+        function drive() {
+            //const name = document.getElementById("cname").value;
+            if (Car.name === undefined || Car.name === "") {
+                document.getElementById("carstatus").innerHTML = "Car has NOT created."
+            } else {
+                Car.drive(Car.name);
+            }
+        }
+        function stop() {
+            //const name = document.getElementById("cname").value;
+            if (Car.name === undefined || Car.name === "") {
+                document.getElementById("carstatus").innerHTML = "Car has NOT created."
+            } else {
+                Car.stop(Car.name);
+            }
+        }
+        let cars = [];
+       // const car = {};
+        function create() {
+            // const car = {};
+            const carname = document.getElementById("cname");
+            const carmodel = document.getElementById("cmodel");
+            const carcolor = document.getElementById("ccolor");
+            const caryear = document.getElementById("cyear");
+
+            name = carname.value; // = document.getElementById("cname").value
+
+            if (name === undefined || name === "") {
+                document.getElementById("carstatus").innerHTML = "Provide valid Car name."
+            } else {
+
+                Car.name = name;
+                Car.model = carmodel.value;
+                Car.color = carcolor.value;
+                Car.year = caryear.value;
+
+
+                document.getElementById("carstatus").innerHTML = name + " has created.";
+            }
+            cars.push(Car);
+           // console.log(cars);
+
+            addCar(Car);
+
+            carname.value = '';    //= document.getElementById("cname").value = ''
+            carmodel.value = '';
+            carcolor.value = '';
+            caryear.value = '';
+        }
+      /*  function editRow(index) {
+            // Get the current row data
+            let rowData = cars[index];
+
+            // Set the form values to the current row data
+            document.getElementById("cname").value = rowData(0);
+            document.getElementById("cmodel").value = rowData.carmodel;
+            document.getElementById("ccolor").value = rowData.carcolor;
+            document.getElementById("cyear").value = rowData.caryear;
+
+            // Remove the current row data from the table data array
+            tableData.splice(index, 1);
+
+            // Redraw the table with the updated data
+            create();
+        }*/
+
+          function edit() {
+              
+               document.getElementById("cname").value = Car.name;
+               document.getElementById("cmodel").value = Car.model;
+               document.getElementById("ccolor").value = Car.color;
+               document.getElementById("cyear").value = Car.year;
+           } 
+        function deleteCar() {
+            Car.name = '';
+            Car.model = '';
+            Car.color = '';
+            Car.year = '';
+            document.getElementById("carstatus").innerHTML = 'Car has removed';
+        }
     </script>
 </head>
+
 <body>
 
-<h1>CAR Factory</h1>
-<label for="factory">Actions:</label>
-<ol id="factory">
-    <li>Create Car</li>
-    <li>Edit Car</li>
-    <li>Start Car</li>
-</ol>
+    <h1>CAR Factory</h1>
+    <label for="factory">Actions:</label>
+    <ol id="factory">
+        <li>Create Car</li>
+        <li>Edit Car</li>
+        <li>Start Car</li>
+    </ol>
 
 
-<form id="form1">
-  <label for="cname">Car Name:</label>
-  <input type="text" id="cname" name="cname"><br><br>
+    <form id="form1">
+        <label for="cname">Car Name:</label>
+        <input type="text" id="cname" name="cname"><br><br>
 
-  <label for="cmodel">Car Model:</label>
-  <input type="text" id="cmodel" name="cmodel"><br><br>
+        <label for="cmodel">Car Model:</label>
+        <input type="text" id="cmodel" name="cmodel"><br><br>
 
-  <label for="cyear">Car Year:</label>
-  <input type="text" id="cyear" name="cyear"><br><br>
-  
-  <input type="button" value="Create" onclick="create()">
-  <input type="button" value="Edit" onclick="edit()">
-  <input type="button" value="Delete" onclick="deleteCar()"> <br><br>
-  <input type="button" value="Start" onclick="start()">
-  
-</form>
-<hr>
-<div id="carstatus"></div>
-<div>
-    <table style="border: 1px solid green">
-        <thead>
-            <tr>
-                <td>NAME</td>
-                <td>MODEL</td>
-                <td>YEAR</td>
-            </tr>
-        </thead>
-        <tbody id="carstable">
+        <label for="ccolor">Car Color:</label>
+        <input type="text" id="ccolor" name="ccolor"><br><br>
 
-        </tbody>
-    </table>
-</div>
-<script>
-    function addCar(car){
-        //for(i=0; i<cars.length; i++){
-            //const c = cars[i];
-            const row = document.createElement("tr");
-            row.setAttribute("id", Math.random()); //Math.random() gives value between 0, 1.
+        <label for="cyear">Car Year:</label>
+        <input type="text" id="cyear" name="cyear"><br><br>
 
-            
+        <input type="button" value="Create" onclick="create()">
 
-            //Adding car Model
-            // const cell2 = document.createElement("td");
-            // const tNode2 = document.createTextNode(car.model);
-            // cell2.appendChild(tNode2);
-            // row.appendChild(cell2);
+        <input type="button" value="Start" onclick="start()">
+        <input type="button" value="drive" onclick="drive()">
+        <input type="button" value="Stop" onclick="stop()">
+        <input type="button" value="break" onclick="breakCar()">
 
-            addCell(row, car.name);
-            addCell(row, car.model);
-            addCell(row, car.year);//DRY Rule
 
-            const element = document.getElementById("carstable");
-            element.appendChild(row);
-        //}
-    }
-    function addCell(row, cellValue){
-        //Adding cell to the row.
-        const cell = document.createElement("td"); //<td></td>
-        const node = document.createTextNode(cellValue);// ex: Acura
-        cell.appendChild(node);//<td>Acura</td>
-        row.appendChild(cell); //<tr><td>Acura</td></tr>
-    }
-</script>
+    </form>
+    <hr>
+    <div id="carstatus"></div>
+    <div>
+        <table id="myTable" style="border: 1px solid green" cellpadding="6px" text_align="center" border="1">
+
+            <thead>
+                <tr>
+                    <td>NAME</td>
+                    <td>MODEL</td>
+                    <td>COLOR</td>
+                    <td>YEAR</td>
+                    <td>Actions</td>
+
+                </tr>
+            </thead>
+            <tbody id="carstable">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function addCar(car) {
+         //   let tableBody = document.getElementById("myTable").getElementsByTagName("tbody")[0];
+         //  tableBody.innerHTML = " ";
+         //  for (i = 0; i < cars.length; i++) {
+                
+                const row = document.createElement("tr");
+                row.setAttribute("id", Math.random()); //Math.random() gives value between 0, 1.
+
+                const button1 = document.createElement("button");
+                button1.innerHTML = 'Edit';
+                button1.setAttribute('onclick', 'edit()');
+
+
+                const button2 = document.createElement("button");
+                button2.innerHTML = 'Delete';
+                button2.setAttribute('onclick', 'deleteCar()');
+
+
+                addCell(row, car.name);
+                addCell(row, car.model);
+                addCell(row, car.color);
+                addCell(row, car.year);//DRY Rule
+                row.appendChild(button1);
+                row.appendChild(button2);
+
+
+
+                const element = document.getElementById("carstable");
+                element.appendChild(row);
+            }
+        
+        
+            function addCell(row, cellValue) {
+                //Adding cell to the row.
+                const cell = document.createElement("td"); //<td></td>
+                const node = document.createTextNode(cellValue);// ex: Acura
+                cell.appendChild(node);//<td>Acura</td>
+                row.appendChild(cell); //<tr><td>Acura</td></tr>
+            }
+    </script>
 </body>
-</html>
 
+</html>

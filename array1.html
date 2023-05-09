@@ -1,0 +1,41 @@
+<html>
+
+<body>
+
+
+  <p id="demo"></p>
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+
+  <script>
+    const cars = ["Saab", "Volvo", "BMW", 2, 5, "Acura", 100];
+
+
+    cars.forEach(myFunction);
+    const found = cars.find(name => name === "Acura");
+
+    document.getElementById("demo2").innerHTML = found;
+
+    function myFunction(value) {
+      if (cars.indexOf("Acura") > -1) {
+        document.getElementById("demo").innerHTML = "its exist in an array, and the index is " + cars.indexOf("Acura");
+      }
+      else {
+        document.getElementById("demo").innerHTML = "Acura doesnt existing";
+      }
+
+      if (cars.includes("Acura") == true) {
+        document.getElementById("demo1").innerHTML = "its exist in an array, and the index is " + cars.indexOf("Acura");
+      }
+      else {
+        document.getElementById("demo1").innerHTML = "Acura doesnt existing";
+      }
+
+    }
+    
+
+  </script>
+
+</body>
+
+</html>
