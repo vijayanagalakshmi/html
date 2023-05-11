@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Array Elements</title>
+  <script>
+    function findSumElements(arr, targetSum) {
+      for (var i = 0; i < arr.length; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+          if (arr[i] + arr[j] === targetSum) {
+            return [arr[i], arr[j]];
+          }
+        }
+      }
+      return null; // Return null if no elements sum up to the target
+    }
+
+    // Example usage
+    var numbers = [2, 4, 6, 8, 10];
+    var target = 14;
+    var result = findSumElements(numbers, target);
+    if (result) {
+      console.log("Elements found:", result[0], "and", result[1]);
+     
+    } else {
+      console.log("No elements found that sum up to the target.");
+    }
+  </script>
+</head>
+<body>
+    
+</body>
+</html>

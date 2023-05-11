@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script>
+        function myFunction() {
+
+            let arr = [];
+            let found;
+
+            arr = document.getElementById("st1").value.split(" ");
+            const tar = document.getElementById("target").value;
+
+            if (arr.indexOf(tar) > -1) {
+                console.log('String found in the array.');
+                document.getElementById("demo").innerHTML = tar + " found in the main string ."
+            } else {
+                document.getElementById("demo").innerHTML = tar + " not found in the main string ."
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <label for="st1">Main string</label>
+    <input type="text" id="st1" name="st1"><br>
+    <lable for="target">Target String</lable>
+    <input type="text" id="target" name="target"><br>
+    <input type="button" value="button" onclick="myFunction()">
+    <p id="demo"></p>
+</body>
+
+</html>

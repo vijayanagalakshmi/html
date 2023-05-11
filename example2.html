@@ -1,0 +1,30 @@
+<html>
+<head>
+  <script>
+function getElements(arr, targetSum) {
+  let result = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === targetSum) {
+        result.push([arr[i], arr[j]]);
+      }
+      
+    }
+  }
+  
+  return result; 
+}
+const numbers = [2, 4, 6, 3, 1, 5,8 , -1];
+const target = 7;
+
+const filteredElements = getElements(numbers, target);
+
+console.log(filteredElements);
+
+</script>
+</head>
+<body>
+ 
+</body>
+</html>
